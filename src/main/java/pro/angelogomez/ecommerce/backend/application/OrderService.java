@@ -21,7 +21,7 @@ public class OrderService {
     public Iterable<Order> findByUserId(Integer userId) {
         return iOrderRepository.findByUserId(userId);
     }
-    public void updateStateById(Integer id, String state) {
-        iOrderRepository.updateStateById(id, state);
+    public void updateStateById(Integer id, String state){
+        this.iOrderRepository.updateStateById(id, state);
     }
 }

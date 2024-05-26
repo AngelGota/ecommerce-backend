@@ -3,9 +3,11 @@ package pro.angelogomez.ecommerce.backend.infrastructure.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pro.angelogomez.ecommerce.backend.application.CategoryService;
+import pro.angelogomez.ecommerce.backend.application.OrderService;
 import pro.angelogomez.ecommerce.backend.application.ProductService;
 import pro.angelogomez.ecommerce.backend.application.UserService;
 import pro.angelogomez.ecommerce.backend.domain.port.ICategoryRepository;
+import pro.angelogomez.ecommerce.backend.domain.port.IOrderRepository;
 import pro.angelogomez.ecommerce.backend.domain.port.IProductRepository;
 import pro.angelogomez.ecommerce.backend.domain.port.IUserRepository;
 
@@ -22,5 +24,9 @@ public class BeanConfiguration {
     @Bean
     public ProductService productService(IProductRepository iProductRepository){
         return new ProductService(iProductRepository);
+    }
+    @Bean
+    public OrderService orderService(IOrderRepository iOrderRepository){
+        return new OrderService(iOrderRepository);
     }
 }

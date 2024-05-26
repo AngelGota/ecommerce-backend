@@ -16,7 +16,7 @@ public class OrderEntity {
     private Integer id;
     @CreationTimestamp
     private LocalDateTime dateCreated;
-    @Enumerated(EnumType.STRING)
+    @Enumerated(value = EnumType.STRING)
     private OrderState orderState;
     @ManyToOne
     private UserEntity userEntity;
