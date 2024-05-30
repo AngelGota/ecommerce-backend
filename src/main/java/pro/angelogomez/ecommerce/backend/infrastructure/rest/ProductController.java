@@ -12,6 +12,7 @@ import pro.angelogomez.ecommerce.backend.domain.model.Product;
 @RequestMapping("/api/v1/admin/products")
 @Slf4j
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
     private final ProductService productService;
 
