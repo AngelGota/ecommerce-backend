@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import pro.angelogomez.ecommerce.backend.application.ProductService;
 import pro.angelogomez.ecommerce.backend.domain.model.Product;
 
+import java.math.BigDecimal;
+
 @RestController // http://localhost:8085/api/v1/admin/products
 @RequestMapping("/api/v1/admin/products")
 @Slf4j
@@ -17,7 +19,24 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping // http://localhost:8085/api/v1/admin/products
-    public ResponseEntity<Product> save(@RequestBody Product product) {
+    public ResponseEntity<Product> save(@RequestParam("id") Integer id,
+                                        @RequestParam("code") String code,
+                                        @RequestParam("name") String name,
+                                        @RequestParam("description") String description,
+                                        @RequestParam("price") BigDecimal price,
+                                        @RequestParam("urlImage") String urlImage,
+                                        @RequestParam("userId") Integer userId,
+                                        @RequestParam("categoryId") Integer categoryId) {
+        Product product = new Product();
+        product.setId(id);
+        product.setCode(code);
+        product.setName(name);
+        product.setDescription(description);
+        product.setPrice(price);
+        product.setUrlImage(urlImage);
+        product.setUserId(userId);
+        product.setCategoryId(categoryId);
+
         log.info("Product name: {}", product.getName()); // Info gracias a @Slf4j de Lombok
         return new ResponseEntity<>(productService.save(product), HttpStatus.CREATED);
     }
