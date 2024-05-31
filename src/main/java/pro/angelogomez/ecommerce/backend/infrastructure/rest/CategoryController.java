@@ -10,6 +10,7 @@ import pro.angelogomez.ecommerce.backend.domain.model.Category;
 @RestController // http://localhost:8085/api/v1/admin/categories
 @RequestMapping("/api/v1/admin/categories")
 @Slf4j
+@CrossOrigin(origins = "http://localhost:4200")
 public class CategoryController {
     private final CategoryService categoryService;
 
