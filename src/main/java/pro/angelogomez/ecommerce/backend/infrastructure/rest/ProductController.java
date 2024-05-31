@@ -5,9 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pro.angelogomez.ecommerce.backend.application.ProductService;
 import pro.angelogomez.ecommerce.backend.domain.model.Product;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 
 @RestController // http://localhost:8085/api/v1/admin/products
@@ -26,7 +28,8 @@ public class ProductController {
                                         @RequestParam("price") BigDecimal price,
                                         @RequestParam("urlImage") String urlImage,
                                         @RequestParam("userId") Integer userId,
-                                        @RequestParam("categoryId") Integer categoryId) {
+                                        @RequestParam("categoryId") Integer categoryId,
+                                        @RequestParam(value = "image", required = false) MultipartFile multipartFile) throws IOException {
         Product product = new Product();
         product.setId(id);
         product.setCode(code);
@@ -38,7 +41,7 @@ public class ProductController {
         product.setCategoryId(categoryId);
 
         log.info("Product name: {}", product.getName()); // Info gracias a @Slf4j de Lombok
-        return new ResponseEntity<>(productService.save(product), HttpStatus.CREATED);
+        return new ResponseEntity<>(productService.save(product, multipartFile), HttpStatus.CREATED);
     }
     @GetMapping // http://localhost:8085/api/v1/admin/products
     public ResponseEntity<Iterable<Product>> findAll() {
