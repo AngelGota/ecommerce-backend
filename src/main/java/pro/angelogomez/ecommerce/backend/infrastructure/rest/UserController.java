@@ -6,6 +6,7 @@ import pro.angelogomez.ecommerce.backend.domain.model.User;
 
 @RestController // http://localhost:8085/api/v1/users
 @RequestMapping("/api/v1/users")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
     private final UserService userService;
 
