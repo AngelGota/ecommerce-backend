@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import pro.angelogomez.ecommerce.backend.domain.model.DataPayment;
+import pro.angelogomez.ecommerce.backend.domain.model.URLPaypalResponse;
 import pro.angelogomez.ecommerce.backend.infrastructure.service.PaypalService;
 
 @RestController
@@ -19,7 +20,7 @@ public class PaypalController {
     private final String CANCEL_URL = "http://localhost:8085/api/v1/payments/cancel";
 
     @PostMapping
-    public String createPayment(@RequestBody DataPayment dataPayment) {
+    public URLPaypalResponse createPayment(@RequestBody DataPayment dataPayment) {
         try {
             Payment payment = paypalService.createPayment(
                     Double.valueOf(dataPayment.getCurrency()),
@@ -32,13 +33,13 @@ public class PaypalController {
             );
             for (Links links : payment.getLinks()){
                 if (links.getRel().equals("approval_url")){
-                    return links.getHref();
+                    return new URLPaypalResponse(links.getHref());
                 }
             }
         } catch (PayPalRESTException e) {
             throw new RuntimeException(e);
         }
-        return "";
+        return new URLPaypalResponse("");
     }
 
     @GetMapping("/success")
