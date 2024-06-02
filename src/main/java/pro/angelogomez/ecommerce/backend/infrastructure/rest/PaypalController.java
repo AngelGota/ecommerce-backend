@@ -4,6 +4,7 @@ import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
 import com.paypal.base.rest.PayPalRESTException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import pro.angelogomez.ecommerce.backend.domain.model.DataPayment;
@@ -13,6 +14,7 @@ import pro.angelogomez.ecommerce.backend.infrastructure.service.PaypalService;
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
+@Slf4j
 @RequestMapping("/api/v1/payments")
 public class PaypalController {
     private final PaypalService paypalService;
@@ -21,9 +23,10 @@ public class PaypalController {
 
     @PostMapping
     public URLPaypalResponse createPayment(@RequestBody DataPayment dataPayment) {
+        log.info("dat {}", dataPayment);
         try {
             Payment payment = paypalService.createPayment(
-                    Double.valueOf(dataPayment.getCurrency()),
+                    Double.valueOf(dataPayment.getAmount()),
                     dataPayment.getCurrency(),
                     dataPayment.getMethod(),
                     "SALE",
@@ -39,7 +42,7 @@ public class PaypalController {
         } catch (PayPalRESTException e) {
             throw new RuntimeException(e);
         }
-        return new URLPaypalResponse("");
+        return new URLPaypalResponse("http://localhost:4200");
     }
 
     @GetMapping("/success")
@@ -51,6 +54,7 @@ public class PaypalController {
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if (payment.getState().equals("approved")){
                 return new RedirectView("http://localhost:4200/payment/success");
+                // return new RedirectView("http://localhost:4200");
             }
         } catch (PayPalRESTException e) {
             throw new RuntimeException(e);
