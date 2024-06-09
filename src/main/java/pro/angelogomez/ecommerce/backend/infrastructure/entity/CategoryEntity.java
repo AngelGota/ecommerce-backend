@@ -18,6 +18,7 @@ public class CategoryEntity {
     private Integer id;
     private String name;
     @CreationTimestamp
+    @Column(nullable = false, updatable = false)
     private LocalDateTime dateCreated;
     @UpdateTimestamp
     private LocalDateTime dateUpdated;

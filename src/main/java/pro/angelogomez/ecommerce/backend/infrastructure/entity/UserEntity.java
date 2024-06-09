@@ -18,22 +18,18 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String username;
-    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "last_name")
     private String lastName;
     @Column(unique = true)
     private String email;
     private String address;
     private String cellphone;
     private String password;
-    @Column(name = "user_type")
     @Enumerated(EnumType.STRING)
     private UserType userType;
-    @Column(name = "date_created")
     @CreationTimestamp
+    @Column(nullable = false, updatable = false)
     private LocalDateTime dateCreated;
-    @Column(name = "date_updated")
     @UpdateTimestamp
     private LocalDateTime dateUpdated;
 }

@@ -15,6 +15,7 @@ public class OrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @CreationTimestamp
+    @Column(nullable = false, updatable = false)
     private LocalDateTime dateCreated;
     @Enumerated(value = EnumType.STRING)
     private OrderState orderState;

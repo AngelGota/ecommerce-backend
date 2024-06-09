@@ -23,6 +23,7 @@ public class ProductEntity {
     private String urlImage;
     private BigDecimal price;
     @CreationTimestamp
+    @Column(nullable = false, updatable = false)
     private LocalDateTime dateCreated;
     @UpdateTimestamp
     private LocalDateTime dateUpdated;
