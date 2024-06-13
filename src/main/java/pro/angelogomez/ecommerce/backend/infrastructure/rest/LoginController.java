@@ -9,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+import pro.angelogomez.ecommerce.backend.infrastructure.dto.JWTClient;
 import pro.angelogomez.ecommerce.backend.infrastructure.dto.UserDTO;
 import pro.angelogomez.ecommerce.backend.infrastructure.jwt.JWTGenerator;
 
@@ -23,7 +24,7 @@ public class LoginController {
     private final JWTGenerator jwtGenerator;
 
     @PostMapping("/login") // http://localhost:8085/api/v1/security/login
-    public ResponseEntity<String> login(@RequestBody UserDTO userDTO) {
+    public ResponseEntity<JWTClient> login(@RequestBody UserDTO userDTO) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(userDTO.username(), userDTO.password())
         );
@@ -33,7 +34,8 @@ public class LoginController {
         log.info("Rol del usuario logueado: {}", authentication.getAuthorities().stream().findFirst().get().toString());
 
         String token = jwtGenerator.getToken(userDTO.username());
+        JWTClient jwtClient = new JWTClient(token);
 
-        return new ResponseEntity<>("Usuario logueado correctamente. Your token is: "+ token, HttpStatus.OK);
+        return new ResponseEntity<>(jwtClient, HttpStatus.OK);
     }
 }
