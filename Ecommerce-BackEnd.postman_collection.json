@@ -1,0 +1,815 @@
+{
+	"info": {
+		"_postman_id": "6b4ae905-46c4-4b5e-86df-aa2f33135e2a",
+		"name": "Ecommerce-BackEnd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29988281"
+	},
+	"item": [
+		{
+			"name": "Security",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"angelgomadmin\",\r\n    \"firstName\": \"Angelo\",\r\n    \"lastName\": \"Gomez\",\r\n    \"email\": \"adminsoyp@gmail.com\",\r\n    \"address\": \"los angeles 123 sc2 mzZ\",\r\n    \"cellphone\": \"987654321\",\r\n    \"password\": \"agomez\",\r\n    \"userType\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/security/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"security",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"adminsoyp@gmail.com\",\r\n    \"password\": \"agomez\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/security/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"security",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of emails",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/security/verification/emails/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"security",
+								"verification",
+								"emails",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"angelgota\",\r\n    \"firstName\": \"Angelo\",\r\n    \"lastName\": \"Gomez\",\r\n    \"email\": \"gangelos630@gmail.com\",\r\n    \"address\": \"los angeles 123 sc2 mzZ\",\r\n    \"cellphone\": \"987654321\",\r\n    \"userType\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Boxer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"Short\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search category by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJnb3RhYW5nZWxKV1QiLCJzdWIiOiJhZG1pbnNveXBAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiT3B0aW9uYWxbUk9MRV9BRE1JTl0iXSwiaWF0IjoxNzE4MzA3ODk4LCJleHAiOjE3MTkxNzE4OTh9.xM2JQhlF8C6QZVBI5dS7wixZU9297Kz-9EF5d3QQ-2e-C43tph01_t0d4iP1d44arUKFDStwAJbMmCBdrX9oWg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete category by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/categories/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"categories",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Garments",
+			"item": [
+				{
+					"name": "Create garment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJnb3RhYW5nZWxKV1QiLCJzdWIiOiJhZG1pbnNveXBAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiT3B0aW9uYWxbUk9MRV9BRE1JTl0iXSwiaWF0IjoxNzE4MzQ1NjIxLCJleHAiOjE3MTkyMDk2MjF9.nfCHFfVo2VaYg94ED-qjbLToUT5QkPLNw6ZlfyyAPB6G57j5ACYyrin9K79UDFjGX5HJtpTGXK19Aet9Elq9Ww",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mujer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/garments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"garments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update garment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"Short\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/garments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"garments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search garment by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJnb3RhYW5nZWxKV1QiLCJzdWIiOiJhZG1pbnNveXBAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiT3B0aW9uYWxbUk9MRV9BRE1JTl0iXSwiaWF0IjoxNzE4MzQ1NjIxLCJleHAiOjE3MTkyMDk2MjF9.nfCHFfVo2VaYg94ED-qjbLToUT5QkPLNw6ZlfyyAPB6G57j5ACYyrin9K79UDFjGX5HJtpTGXK19Aet9Elq9Ww",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/garments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"garments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of garments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJnb3RhYW5nZWxKV1QiLCJzdWIiOiJhZG1pbnNveXBAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiT3B0aW9uYWxbUk9MRV9BRE1JTl0iXSwiaWF0IjoxNzE4MzA3ODk4LCJleHAiOjE3MTkxNzE4OTh9.xM2JQhlF8C6QZVBI5dS7wixZU9297Kz-9EF5d3QQ-2e-C43tph01_t0d4iP1d44arUKFDStwAJbMmCBdrX9oWg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/garments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"garments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete garment by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/garment/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"garment",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Rest Api para garments types"
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJnb3RhYW5nZWxKV1QiLCJzdWIiOiJhZG1pbnNveXBAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiT3B0aW9uYWxbUk9MRV9BRE1JTl0iXSwiaWF0IjoxNzE4MzQ1NjIxLCJleHAiOjE3MTkyMDk2MjF9.nfCHFfVo2VaYg94ED-qjbLToUT5QkPLNw6ZlfyyAPB6G57j5ACYyrin9K79UDFjGX5HJtpTGXK19Aet9Elq9Ww",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Zapatillas\",\r\n    \"code\": \"13230\",\r\n    \"description\": \"Nike Urbanas talla 42\",\r\n    \"price\": \"300\",\r\n    \"userId\": \"1\",\r\n    \"garmentId\": \"1\",\r\n    \"categoryId\": \"4\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"Polo Regular Fit\",\r\n    \"code\": \"86734\",\r\n    \"description\": \"Polo en punto de algodón ligero con cuello redondo ribeteado y bajo recto. Corte estándar para una silueta clásica y cómoda.\",\r\n    \"urlImage\": \"https://i.postimg.cc/fbMx2GMd/polo-regularfit-modelo-86734.webp\",\r\n    \"price\": 24.95,\r\n    \"dateCreated\": \"2024-05-25T19:42:28.752301\",\r\n    \"userId\": 1,\r\n    \"categoryId\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/products/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of products",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "e8049c47-a96b-4e85-82e4-e3b72eade3da",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "USER",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/admin/products/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of products without protect",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/home",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"home"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"orderState\": \"CONFIRMED\",\r\n    \"orderProducts\":[\r\n        {\r\n            \"productId\": 1,\r\n            \"quantity\": 2,\r\n            \"price\": 300\r\n        },\r\n        {\r\n            \"productId\": 3,\r\n            \"quantity\": 4,\r\n            \"price\": 300\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJnb3RhYW5nZWxKV1QiLCJzdWIiOiJhZG1pbnNveXBAZ21haWwuY29tIiwiYXV0aG9yaXRpZXMiOlsiT3B0aW9uYWxbUk9MRV9BRE1JTl0iXSwiaWF0IjoxNzE4MzA3ODk4LCJleHAiOjE3MTkxNzE4OTh9.xM2JQhlF8C6QZVBI5dS7wixZU9297Kz-9EF5d3QQ-2e-C43tph01_t0d4iP1d44arUKFDStwAJbMmCBdrX9oWg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search by orderId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/orders/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search order by userId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/orders/by-user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"by-user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update by orderId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "CONFIRMED",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/orders/update/state/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"update",
+								"state",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"item": [
+				{
+					"name": "List of products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/v1/home",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"home"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
